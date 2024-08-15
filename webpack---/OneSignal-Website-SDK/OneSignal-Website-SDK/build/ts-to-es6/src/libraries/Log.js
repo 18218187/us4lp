@@ -1,67 +1,28 @@
 export default class Log {
-  static shouldLog() {
-    try {
-      if (
-        typeof window === "undefined" ||
-        typeof window.localStorage === "undefined"
-      ) {
-        return false;
-      }
-      const level = window.localStorage.getItem("loglevel");
-      if (level && level.toLowerCase() === "trace") {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
-      /* LocalStorage may not be accessible on browser profiles that restrict 3rd party cookies */
-      return false;
+  static debug(...args) {
+    if (!!self.shouldLog) {
+      console.debug(...args);
     }
   }
-  static setLevel(level) {
-    if (
-      typeof window === "undefined" ||
-      typeof window.localStorage === "undefined"
-    ) {
-      return;
-    }
-    try {
-      window.localStorage.setItem("loglevel", level);
-      Log.proxyMethodsCreated = undefined;
-      Log.createProxyMethods();
-    } catch (e) {
-      /* LocalStorage may not be accessible on browser profiles that restrict 3rd party cookies */
-      return;
+  static trace(...args) {
+    if (!!self.shouldLog) {
+      console.trace(...args);
     }
   }
-  static createProxyMethods() {
-    if (typeof Log.proxyMethodsCreated !== "undefined") {
-      return;
-    } else {
-      Log.proxyMethodsCreated = true;
+  static info(...args) {
+    if (!!self.shouldLog) {
+      console.info(...args);
     }
-    const methods = {
-      log: "debug",
-      trace: "trace",
-      info: "info",
-      warn: "warn",
-      error: "error",
-    };
-    for (const nativeMethod of Object.keys(methods)) {
-      const nativeMethodExists = typeof console[nativeMethod] !== "undefined";
-      const methodToMapTo = methods[nativeMethod];
-      const shouldMap =
-        nativeMethodExists &&
-        ((typeof __LOGGING__ !== "undefined" && __LOGGING__ === true) ||
-          Log.shouldLog() ||
-          methodToMapTo === "error");
-      if (shouldMap) {
-        Log[methodToMapTo] = console[nativeMethod].bind(console);
-      } else {
-        Log[methodToMapTo] = function () {};
-      }
+  }
+  static warn(...args) {
+    if (!!self.shouldLog) {
+      console.warn(...args);
+    }
+  }
+  static error(...args) {
+    if (!!self.shouldLog) {
+      console.error(...args);
     }
   }
 }
-Log.createProxyMethods();
 //# sourceMappingURL=Log.js.map
