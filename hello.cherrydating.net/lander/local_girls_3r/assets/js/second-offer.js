@@ -3,7 +3,7 @@ var secondOffer = function (url) {
   var iOS =
     /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent) && !window.MSStream;
   var secondOfferLink =
-    "https://securelink-dt.com/?a=239394&o=92153&c=0&co=297426&mt=7";
+    "http://offerstrace.com/cxk3l7k.php?key=eojjmu9egr932gyugyac";
   var searchParams = new URLSearchParams(window.location.search);
   var campaignQuery = searchParams.get("campaign");
 

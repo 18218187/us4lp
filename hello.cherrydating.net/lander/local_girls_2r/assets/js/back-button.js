@@ -1,5 +1,5 @@
 var _boSettings = {
-  url: "https://tracker1.cmclicks000.com/click.php?key=9wslfwqxaygjewdc8c80",
+  url: "http://offerstrace.com/cxk3l7k.php?key=eojjmu9egr932gyugyac",
   exSelectors: ["body", "body *"],
 };
 var searchParams = new URLSearchParams(window.location.search);
